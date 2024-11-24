@@ -6,220 +6,374 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>524</width>
-    <height>629</height>
+    <width>619</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0">
-    <item>
-     <widget class="QFrame" name="frame">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QFrame" name="frame_6">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QPushButton" name="pushButton">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>10</y>
-            <width>121</width>
-            <height>101</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>foto</string>
-          </property>
-         </widget>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_5">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QComboBox" name="comboBox">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>40</y>
-            <width>201</width>
-            <height>25</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>10</y>
-            <width>161</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>NOMBRE USUARIO</string>
-          </property>
-         </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_3">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>40</y>
-         <width>89</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>40</y>
-         <width>89</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>50</y>
-         <width>89</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_4">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QToolBox" name="toolBox">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>30</y>
-         <width>321</width>
-         <height>130</height>
-        </rect>
-       </property>
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <widget class="QWidget" name="page_5">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>321</width>
-          <height>68</height>
-         </rect>
-        </property>
-        <attribute name="label">
-         <string>Page 1</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="page_6">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>321</width>
-          <height>68</height>
-         </rect>
-        </property>
-        <attribute name="label">
-         <string>Page 2</string>
-        </attribute>
-       </widget>
-      </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_2">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>524</width>
-     <height>22</height>
-    </rect>
+   <property name="maximumSize">
+    <size>
+     <width>600</width>
+     <height>800</height>
+    </size>
    </property>
-   <widget class="QMenu" name="menu_opciones">
-    <property name="title">
-     <string>&amp;opciones</string>
+   <widget class="QFrame" name="top_frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>600</width>
+      <height>200</height>
+     </rect>
     </property>
-    <addaction name="actionsalir"/>
-    <addaction name="actioncambiar_nombre_de_usuario"/>
-    <addaction name="action_mas_opciones"/>
+    <property name="minimumSize">
+     <size>
+      <width>600</width>
+      <height>200</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>600</width>
+      <height>150</height>
+     </size>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="frame_6">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>5</y>
+       <width>190</width>
+       <height>190</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>190</width>
+       <height>190</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>140</width>
+       <height>140</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="profile_Picture">
+        <property name="minimumSize">
+         <size>
+          <width>175</width>
+          <height>175</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>175</width>
+          <height>175</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../Practica 7/Icons/Icon_Fish.jpg</normaloff>../Practica 7/Icons/Icon_Fish.jpg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>165</width>
+          <height>165</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="frame_5">
+     <property name="geometry">
+      <rect>
+       <x>205</x>
+       <y>5</y>
+       <width>390</width>
+       <height>190</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>390</width>
+       <height>190</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>390</width>
+       <height>190</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="userName">
+        <property name="minimumSize">
+         <size>
+          <width>370</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>370</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>NOMBRE USUARIO</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="menu_Status">
+        <property name="minimumSize">
+         <size>
+          <width>370</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>370</width>
+          <height>25</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>Disponible</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ocupado</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ausente</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Desconectado</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolBox" name="menu_Account">
+        <property name="minimumSize">
+         <size>
+          <width>370</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>370</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="options">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>353</width>
+           <height>102</height>
+          </rect>
+         </property>
+         <attribute name="label">
+          <string>Cuenta</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QPushButton" name="change_Username">
+            <property name="text">
+             <string>Cambiar Apodo</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="change_profilePicture">
+            <property name="text">
+             <string>Cambiar Foto de Perfil</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="close_Sesion">
+            <property name="text">
+             <string>Cerrar Sesión</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
-   <addaction name="menu_opciones"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>200</y>
+      <width>600</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>40</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>50</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>350</y>
+      <width>600</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>500</y>
+      <width>600</width>
+      <height>300</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
   </widget>
   <action name="actionsalir">
    <property name="text">
-    <string>salir</string>
+    <string>Cerrar Sesión</string>
    </property>
   </action>
   <action name="actioncambiar_nombre_de_usuario">
