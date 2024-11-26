@@ -74,52 +74,41 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <property name="spacing">
-       <number>5</number>
+     <widget class="QPushButton" name="btn_profilePicture">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>180</width>
+        <height>180</height>
+       </rect>
       </property>
-      <property name="leftMargin">
-       <number>5</number>
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>180</height>
+       </size>
       </property>
-      <property name="topMargin">
-       <number>5</number>
+      <property name="maximumSize">
+       <size>
+        <width>180</width>
+        <height>180</height>
+       </size>
       </property>
-      <property name="rightMargin">
-       <number>5</number>
+      <property name="text">
+       <string/>
       </property>
-      <property name="bottomMargin">
-       <number>5</number>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Practica 7/Icons/Icon_Fish.jpg</normaloff>../Practica 7/Icons/Icon_Fish.jpg</iconset>
       </property>
-      <item>
-       <widget class="QPushButton" name="profile_Picture">
-        <property name="minimumSize">
-         <size>
-          <width>175</width>
-          <height>175</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>175</width>
-          <height>175</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>../Practica 7/Icons/Icon_Fish.jpg</normaloff>../Practica 7/Icons/Icon_Fish.jpg</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>165</width>
-          <height>165</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-     </layout>
+      <property name="iconSize">
+       <size>
+        <width>165</width>
+        <height>165</height>
+       </size>
+      </property>
+     </widget>
     </widget>
     <widget class="QFrame" name="frame_5">
      <property name="geometry">
@@ -229,7 +218,7 @@
         <property name="minimumSize">
          <size>
           <width>370</width>
-          <height>0</height>
+          <height>100</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -245,7 +234,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-32</y>
            <width>353</width>
            <height>102</height>
           </rect>
@@ -282,7 +271,7 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_3">
+   <widget class="QFrame" name="buttons_frame">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -291,60 +280,114 @@
       <height>150</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>600</width>
+      <height>150</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>600</width>
+      <height>150</height>
+     </size>
+    </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="btn_Tereneitor">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>40</y>
-       <width>89</width>
-       <height>25</height>
+       <x>155</x>
+       <y>5</y>
+       <width>140</width>
+       <height>140</height>
       </rect>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>140</width>
+       <height>140</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>140</width>
+       <height>140</height>
+      </size>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Terreneitor</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="btn_smartHome">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>40</y>
-       <width>89</width>
-       <height>25</height>
+       <x>300</x>
+       <y>5</y>
+       <width>140</width>
+       <height>140</height>
       </rect>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>140</width>
+       <height>140</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>140</width>
+       <height>140</height>
+      </size>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Casa Inteligente</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="btn_Matrix">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>50</y>
-       <width>89</width>
-       <height>25</height>
+       <x>10</x>
+       <y>5</y>
+       <width>140</width>
+       <height>140</height>
       </rect>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>140</width>
+       <height>140</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>140</width>
+       <height>140</height>
+      </size>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Matriz de Leds</string>
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_4">
+   <widget class="QFrame" name="list_frame">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>350</y>
       <width>600</width>
-      <height>150</height>
+      <height>200</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>600</width>
+      <height>0</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -352,16 +395,104 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+    <widget class="QToolBox" name="contactList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>105</y>
+       <width>580</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>580</width>
+       <height>90</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>580</width>
+       <height>90</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>580</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Contactos</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5"/>
+     </widget>
+    </widget>
+    <widget class="QToolBox" name="groupList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>5</y>
+       <width>580</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>580</width>
+       <height>90</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>580</width>
+       <height>90</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>580</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Grupos</string>
+      </attribute>
+     </widget>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>500</y>
+      <y>550</y>
       <width>600</width>
-      <height>300</height>
+      <height>250</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>600</width>
+      <height>250</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>600</width>
+      <height>250</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -369,6 +500,75 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QPlainTextEdit" name="msgView">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>5</y>
+       <width>580</width>
+       <height>210</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>580</width>
+       <height>210</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>580</width>
+       <height>210</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="msgWrite">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>220</y>
+       <width>500</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>500</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>500</width>
+       <height>25</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="msgSend">
+     <property name="geometry">
+      <rect>
+       <x>515</x>
+       <y>219</y>
+       <width>75</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>75</width>
+       <height>27</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>75</width>
+       <height>27</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Enviar</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <action name="actionsalir">
