@@ -8,7 +8,36 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, *parent, **flags) -> None:
         super().__init__(*parent, **flags)
         self.setupUi(self)
-        
+        self.Enviar_chat_general.clicked.connect(self.EnviarGrupal)
+
+    def EnviarGrupal(self):
+        "Agregar funcionalidades del servidor"
+        mensaje = self.texto_chat_general.text().strip()
+        if mensaje:  # Validar que el mensaje no esté vacío
+            self.MostrarGrupal(mensaje)
+            self.texto_chat_general.clear()
+        else:
+            self.MostrarAdvertencia("El mensaje no puede estar vacío.")
+    
+    def MostrarGrupal(self, mensaje):
+        """
+        Agregar mensaje al chat general.
+        """
+        self.chat_general.setPlainText(
+            self.chat_general.toPlainText() + mensaje + "\n"
+        )
+
+        self.chat_general.verticalScrollBar().setValue(
+            self.chat_general.verticalScrollBar().maximum()
+        )
+    
+    def MostrarAdvertencia(self, texto):
+        """
+        Mostrar advertencia al usuario en caso de errores.
+        """
+        QMessageBox.warning(self, "Advertencia", texto)
+
+               
 class Primera(QDialog, Ui_DialogPrim):
     def __init__(self, *args, **kwargs):
         super(Primera, self).__init__(*args, **kwargs)

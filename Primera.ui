@@ -48,13 +48,13 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(recursos qrc/imagen_sesion/imagen_inicio_sesion.png);</string>
+    <string notr="true">border-image: url(:/imagen_sesion/imagen_inicio_sesion.png);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -76,7 +76,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="Usuario"/>
         </item>
        </layout>
       </item>
@@ -90,7 +90,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_2"/>
+         <widget class="QLineEdit" name="Contra"/>
         </item>
        </layout>
       </item>
