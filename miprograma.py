@@ -32,12 +32,6 @@ class Primera(QDialog, Ui_DialogPrim):
         event.accept()
 
 
-class Segunda(QDialog, Ui_DialogSeg):
-    def __init__(self, parent=None, *args, **kwargs):
-        super(Segunda, self).__init__(*args, **kwargs)
-        self.setupUi(self)
-        self.btn3.clicked.connect(self.cerrar)
-
     def cerrar(self):
         """Cerrar la ventana secundaria."""
         self.close()
