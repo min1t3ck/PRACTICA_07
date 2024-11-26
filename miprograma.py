@@ -8,8 +8,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, *parent, **flags) -> None:
         super().__init__(*parent, **flags)
         self.setupUi(self)
-
-
+        
 class Primera(QDialog, Ui_DialogPrim):
     def __init__(self, *args, **kwargs):
         super(Primera, self).__init__(*args, **kwargs)
@@ -19,6 +18,7 @@ class Primera(QDialog, Ui_DialogPrim):
 
     def abrir_principal(self):
         """Cerrar esta ventana para continuar con Principal."""
+        "Agregar funciones para verificacion de usuario"
         self.accept()  # Cierra `Primera` e informa al bucle principal
 
     def abrir_segunda(self):
@@ -37,10 +37,15 @@ class Segunda(QDialog, Ui_DialogSeg):
         super(Segunda, self).__init__(*args, **kwargs)
         self.setupUi(self)
         self.btn3.clicked.connect(self.cerrar)
+        self.btnCrear_Usuario.clicked.connect(self.CrearUsuario)
 
     def cerrar(self):
         """Cerrar la ventana secundaria."""
         self.close()
+    
+    def CrearUsuario(self):
+        usuario_nuevo = self.Nuevo_usuario.text()
+        contraseña_usuario = self.Contra2.text()
 
 
 if __name__ == "__main__":

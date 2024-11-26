@@ -6,53 +6,115 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>619</width>
-    <height>800</height>
+    <width>453</width>
+    <height>397</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>453</width>
+    <height>397</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>453</width>
+    <height>397</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="btn1">
+  <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>250</y>
-     <width>75</width>
-     <height>24</height>
+     <y>30</y>
+     <width>49</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Siguiente</string>
+    <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn2">
+  <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>304</x>
-     <y>250</y>
-     <width>81</width>
-     <height>24</height>
+     <x>140</x>
+     <y>40</y>
+     <width>191</width>
+     <height>151</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(recursos qrc/imagen_sesion/imagen_inicio_sesion.png);</string>
+   </property>
    <property name="text">
-    <string>Ir a Segunda</string>
+    <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>70</y>
-     <width>141</width>
-     <height>71</height>
+     <y>200</y>
+     <width>204</width>
+     <height>116</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Primera xD</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Usuario</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Contraseña</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_2"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn1">
+        <property name="text">
+         <string>Iniciar sesion</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn2">
+      <property name="text">
+       <string>Nuevo usuario</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="recursos qrc/inicio_sesion.qrc"/>
+ </resources>
  <connections/>
 </ui>
