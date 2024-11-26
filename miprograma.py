@@ -3,7 +3,7 @@ from Ui_Primera import *
 from Ui_Segunda import *
 from PyQt6.QtWidgets import QMainWindow, QDialog, QApplication
 import sys
-
+#Bklblblbllb
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, *parent, **flags) -> None:
         super().__init__(*parent, **flags)
@@ -63,4 +63,4 @@ if __name__ == "__main__":
 
     sys.exit(app.exec())
 
-    
+#abfjbaejmfbj,aenfk
