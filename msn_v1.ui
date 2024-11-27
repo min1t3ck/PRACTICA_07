@@ -100,7 +100,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../Practica 7/Icons/Icon_Fish.jpg</normaloff>../Practica 7/Icons/Icon_Fish.jpg</iconset>
+        <normaloff>../../../../../../.designer/Practica 7/Icons/Icon_Fish.jpg</normaloff>../../../../../../.designer/Practica 7/Icons/Icon_Fish.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -234,7 +234,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-32</y>
+           <y>0</y>
            <width>353</width>
            <height>102</height>
           </rect>
@@ -431,7 +431,15 @@
       <attribute name="label">
        <string>Contactos</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_5"/>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QPushButton" name="btn_Private">
+         <property name="text">
+          <string>AbrirPrivado</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QToolBox" name="groupList">
@@ -470,6 +478,15 @@
       <attribute name="label">
        <string>Grupos</string>
       </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QPushButton" name="btn_Group">
+         <property name="text">
+          <string>AbrirGrupo</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

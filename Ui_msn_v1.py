@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'c:\Users\Osvaldo Flores\Desktop\Cuarto Semestre UPIITA\Programacion Avanzada\PRACTICA_07-1\msn_v1.ui'
+# Form implementation generated from reading ui file 'c:\Users\toshiba\Desktop\Programacion\Pyton\Practica 7\PRACTICA_07\PRACTICA_07-1\msn_v1.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         self.btn_profilePicture.setMaximumSize(QtCore.QSize(180, 180))
         self.btn_profilePicture.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\Osvaldo Flores\\Desktop\\Cuarto Semestre UPIITA\\Programacion Avanzada\\PRACTICA_07-1\\../Practica 7/Icons/Icon_Fish.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\toshiba\\Desktop\\Programacion\\Pyton\\Practica 7\\PRACTICA_07\\PRACTICA_07-1\\../../../../../../.designer/Practica 7/Icons/Icon_Fish.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_profilePicture.setIcon(icon)
         self.btn_profilePicture.setIconSize(QtCore.QSize(165, 165))
         self.btn_profilePicture.setObjectName("btn_profilePicture")
@@ -73,7 +73,7 @@ class Ui_MainWindow(object):
         self.menu_Account.setMaximumSize(QtCore.QSize(370, 100))
         self.menu_Account.setObjectName("menu_Account")
         self.options = QtWidgets.QWidget()
-        self.options.setGeometry(QtCore.QRect(0, -32, 353, 102))
+        self.options.setGeometry(QtCore.QRect(0, 0, 353, 102))
         self.options.setObjectName("options")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.options)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
@@ -126,6 +126,9 @@ class Ui_MainWindow(object):
         self.page.setObjectName("page")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.page)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.btn_Private = QtWidgets.QPushButton(parent=self.page)
+        self.btn_Private.setObjectName("btn_Private")
+        self.verticalLayout_5.addWidget(self.btn_Private)
         self.contactList.addItem(self.page, "")
         self.groupList = QtWidgets.QToolBox(parent=self.list_frame)
         self.groupList.setGeometry(QtCore.QRect(10, 5, 580, 90))
@@ -135,6 +138,11 @@ class Ui_MainWindow(object):
         self.page_4 = QtWidgets.QWidget()
         self.page_4.setGeometry(QtCore.QRect(0, 0, 580, 60))
         self.page_4.setObjectName("page_4")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.page_4)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.btn_Group = QtWidgets.QPushButton(parent=self.page_4)
+        self.btn_Group.setObjectName("btn_Group")
+        self.verticalLayout_3.addWidget(self.btn_Group)
         self.groupList.addItem(self.page_4, "")
         self.frame_2 = QtWidgets.QFrame(parent=self.centralwidget)
         self.frame_2.setGeometry(QtCore.QRect(0, 550, 600, 250))
@@ -187,7 +195,9 @@ class Ui_MainWindow(object):
         self.btn_Tereneitor.setText(_translate("MainWindow", "Terreneitor"))
         self.btn_smartHome.setText(_translate("MainWindow", "Casa Inteligente"))
         self.btn_Matrix.setText(_translate("MainWindow", "Matriz de Leds"))
+        self.btn_Private.setText(_translate("MainWindow", "AbrirPrivado"))
         self.contactList.setItemText(self.contactList.indexOf(self.page), _translate("MainWindow", "Contactos"))
+        self.btn_Group.setText(_translate("MainWindow", "AbrirGrupo"))
         self.groupList.setItemText(self.groupList.indexOf(self.page_4), _translate("MainWindow", "Grupos"))
         self.msgSend.setText(_translate("MainWindow", "Enviar"))
         self.actionsalir.setText(_translate("MainWindow", "Cerrar Sesión"))
