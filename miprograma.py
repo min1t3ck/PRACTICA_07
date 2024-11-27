@@ -1,7 +1,10 @@
 from Ui_msn_v1 import *
 from Ui_Primera import * 
 from Ui_Segunda import *
-from PyQt6.QtWidgets import QMainWindow, QDialog, QApplication, QMessageBox
+from Ui_Privado import *
+from Ui_Grupos import *
+
+from PyQt6.QtWidgets import QMainWindow, QDialog, QApplication, QMessageBox, QWidget
 from PyQt6.QtCore import QThread, pyqtSignal
 import sys
 import socket
@@ -47,6 +50,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         self.msgSend.clicked.connect(self.mensaje_saliente)
         self.msgWrite.returnPressed.connect(self.mensaje_saliente)
+        
+        #botones auxiliares pra probar las ventanas de privado y grupal
+        self.btn_Private.clicked.connect(self.mensajePrivado)
+        self.btn_Group.clicked.connect(self.mensajeGrupo)
 
     def mensaje_saliente(self):
         str = self.msgWrite.text()
@@ -63,6 +70,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def MostrarAdvertencia(self, texto):
         """Mostrar advertencia al usuario en caso de errores"""
         QMessageBox.warning(self, "Advertencia", texto)
+
+    #abre privado
+    def mensajePrivado(self):
+        self.ventana_privada = Privado(self) 
+        self.ventana_privada.show() 
+    #abre grupal
+    def mensajeGrupo(self):
+        self.ventana_privada = Grupo(self) 
+        self.ventana_privada.show() 
 
 class Primera(QDialog, Ui_DialogPrim):
     def __init__(self, *args, **kwargs):
@@ -115,6 +131,22 @@ class Segunda(QDialog, Ui_DialogSeg):
         usuario_nuevo = self.Nuevo_usuario.text()
         contraseña_usuario = self.Contra2.text()
         
+#Ventana Mensaje privado        
+class Privado(QDialog, Ui_Privado):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
+        
+
+
+
+#Ventana mensaje grupal
+class Grupo(QDialog, Ui_Grupo):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)        
+
+
     
 if __name__ == "__main__":
     BUFFER_SIZE = 1024  # Usamos un número pequeño para tener una respuesta rápida
