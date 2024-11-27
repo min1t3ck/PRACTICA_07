@@ -136,7 +136,10 @@ class Privado(QDialog, Ui_Privado):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
-        
+        self.btn_Close.clicked.connect(self.cerrarVentana)
+
+    def cerrarVentana(self):
+        self.close()
 
 
 
@@ -145,8 +148,10 @@ class Grupo(QDialog, Ui_Grupo):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)        
+        self.btn_Close.clicked.connect(self.cerrarVentana)
 
-
+    def cerrarVentana(self):
+        self.close()
     
 if __name__ == "__main__":
     BUFFER_SIZE = 1024  # Usamos un número pequeño para tener una respuesta rápida

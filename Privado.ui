@@ -97,11 +97,11 @@
     <string>Enviar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_profilePicture">
+  <widget class="QPushButton" name="btn_friendPicture">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>80</y>
+     <y>40</y>
      <width>180</width>
      <height>180</height>
     </rect>
@@ -132,7 +132,7 @@
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_profilePicture_2">
+  <widget class="QPushButton" name="btn_profilePicture">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -178,20 +178,53 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btn_Play">
       <property name="text">
        <string>Jugar</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btn_Close">
       <property name="text">
        <string>Cerrar</string>
       </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="userName">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>40</y>
+     <width>381</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>370</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>580</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Name_Friend</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
   </widget>
  </widget>
  <resources/>
