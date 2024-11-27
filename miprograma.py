@@ -39,9 +39,11 @@ class ThreadSocket(QThread):
         self.wait()
 
 class MainWindow(QMainWindow, Ui_MainWindow):
-    def __init__(self, *parent, **flags) -> None:
+    def __init__(self, socket_thread,*parent, **flags) -> None:
         super().__init__(*parent, **flags)
         self.setupUi(self)
+        self.coneccion = socket_thread
+        self.coneccion.signal_message.connect(self.mensaje_entrante)
         
         self.msgSend.clicked.connect(self.mensaje_saliente)
         self.msgWrite.returnPressed.connect(self.mensaje_saliente)
@@ -57,15 +59,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.msgView.setPlainText(self.msgView.toPlainText() + mensaje)
         self.msgView.verticalScrollBar().setValue(self.msgView.verticalScrollBar().maximum())
             
-    def MostrarGrupal(self, mensaje):
-        """Agregar mensaje al chat general"""
-        self.msgView.setPlainText(
-            self.msgView.toPlainText() + mensaje + "\n"
-        )
-
-        self.msgView.verticalScrollBar().setValue(
-            self.msgView.verticalScrollBar().maximum()
-        )
     
     def MostrarAdvertencia(self, texto):
         """Mostrar advertencia al usuario en caso de errores"""
@@ -78,12 +71,23 @@ class Primera(QDialog, Ui_DialogPrim):
         self.btn1.clicked.connect(self.abrir_principal)  # Botón Siguiente
         self.btn2.clicked.connect(self.abrir_segunda)    # Botón Segunda
 
+    def VerificarUsuario(self):
+        usuario = self.Usuario.text()
+        contraseña = self.Contra.text()
+        
+        if not usuario:
+            QMessageBox.warning(self, "No hay usuario", "Ingrese un usuario")
+            return False
+        else:
+            return True
     def abrir_principal(self):
         """Cerrar esta ventana para continuar con Principal."""
-        self.accept()  # Cierra `Primera` e informa al bucle principal
-        port = 3003
-        user = 'vic'
-        self.coneccion = ThreadSocket('18.119.116.177', int(port), user)
+        if self.VerificarUsuario():
+            user = self.Usuario.text()
+            port = 3003
+            self.coneccion = ThreadSocket('18.119.116.177', int(port), user)
+            self.coneccion.start()  
+            self.accept()
 
     def abrir_segunda(self):
         """Abrir la ventana secundaria como un diálogo modal."""
@@ -126,7 +130,7 @@ if __name__ == "__main__":
 
         if resultado == QDialog.DialogCode.Accepted:
             # Abrir `Principal` si el usuario presionó "Siguiente"
-            ventana_principal = MainWindow()
+            ventana_principal = MainWindow(ventana_primera.coneccion)
             ventana_principal.show()
             break  # Salimos del bucle para no volver a abrir `Primera`
         else:
