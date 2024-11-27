@@ -3,6 +3,8 @@ from Ui_Primera import *
 from Ui_Segunda import *
 from Ui_Privado import *
 from Ui_Grupos import *
+from Ui_Terreneitor import *
+
 
 from PyQt6.QtWidgets import QMainWindow, QDialog, QApplication, QMessageBox, QWidget
 from PyQt6.QtCore import QThread, pyqtSignal
@@ -48,12 +50,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.coneccion = socket_thread
         self.coneccion.signal_message.connect(self.mensaje_entrante)
         
+        self.usuarios_conectados = []
+        
         self.msgSend.clicked.connect(self.mensaje_saliente)
         self.msgWrite.returnPressed.connect(self.mensaje_saliente)
         
         #botones auxiliares pra probar las ventanas de privado y grupal
         self.btn_Private.clicked.connect(self.mensajePrivado)
         self.btn_Group.clicked.connect(self.mensajeGrupo)
+        
+        self.btn_Tereneitor.clicked.connect(self.terreneitor)
+        
+        
 
     def mensaje_saliente(self):
         str = self.msgWrite.text()
@@ -63,8 +71,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.mensaje_entrante("<Tú> " + str + '\n')
             
     def mensaje_entrante(self, mensaje):
-        self.msgView.setPlainText(self.msgView.toPlainText() + mensaje)
-        self.msgView.verticalScrollBar().setValue(self.msgView.verticalScrollBar().maximum())
+        if mensaje.startswith("<list_response>"):
+        
+            usuarios = mensaje.removeprefix("<list_response>").removesuffix("</list_response>")
+            self.usuarios_conectados = usuarios.split(",") if usuarios else []
+            print("Usuarios conectados:", self.usuarios_conectados)
+        else:
+            
+            self.msgView.setPlainText(self.msgView.toPlainText() + mensaje)
+            self.msgView.verticalScrollBar().setValue(self.msgView.verticalScrollBar().maximum())
             
     
     def MostrarAdvertencia(self, texto):
@@ -79,6 +94,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def mensajeGrupo(self):
         self.ventana_privada = Grupo(self) 
         self.ventana_privada.show() 
+        
+    def terreneitor(self):
+        self.ventana_terreneitor = Terrene(self)
+        self.ventana_terreneitor.show()
 
 class Primera(QDialog, Ui_DialogPrim):
     def __init__(self, *args, **kwargs):
@@ -133,6 +152,7 @@ class Segunda(QDialog, Ui_DialogSeg):
         
 #Ventana Mensaje privado        
 class Privado(QDialog, Ui_Privado):
+    signal_enviar = pyqtSignal(str, str)
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
@@ -141,6 +161,43 @@ class Privado(QDialog, Ui_Privado):
     def cerrarVentana(self):
         self.close()
 
+class Terrene(QDialog, Ui_Terreneitor):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)        
+        self.btn_adelante.pressed.connect(self.enviar_adelante)
+        self.btn_adelante.released.connect(self.parar)
+        
+        self.btn_atras.pressed.connect(self.enviar_atras)
+        self.btn_atras.released.connect(self.parar)
+        
+        self.btn_izquierda.pressed.connect(self.izquierda)
+        self.btn_izquierda.released.connect(self.parar)
+        
+        self.btn_derecha.pressed.connect(self.derecha)
+        self.btn_derecha.released.connect(self.parar)
+        
+        
+    def cerrarVentana(self):
+        self.close()
+        
+    def enviar_adelante(self):
+        server.send(bytes('<command>Adelante', 'utf-8'))
+        
+    def enviar_atras(self):
+        server.send(bytes('<command>Atras', 'utf-8'))
+        
+        
+    def derecha(self):
+        server.send(bytes('<command>Derecha', 'utf-8'))
+        
+    def izquierda(self):
+        server.send(bytes('<command>Izquierda', 'utf-8'))
+        
+    def parar(self):
+        server.send(bytes('<command>Parar', 'utf-8'))
+    
+    
 
 
 #Ventana mensaje grupal
