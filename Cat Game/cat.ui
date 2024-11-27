@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>605</width>
+    <height>605</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>605</width>
+    <height>605</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>605</width>
+    <height>605</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>205</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>205</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>405</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>405</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_8">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>5</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>405</x>
+     <y>5</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>405</x>
+     <y>405</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>405</x>
+     <y>205</y>
+     <width>195</width>
+     <height>195</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>195</width>
+     <height>195</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>100</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
