@@ -49,8 +49,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.coneccion = socket_thread
         self.coneccion.signal_message.connect(self.mensaje_entrante)
+        server.send(bytes('<lista', 'utf-8'))
         
         self.usuarios_conectados = []
+        
         
         self.msgSend.clicked.connect(self.mensaje_saliente)
         self.msgWrite.returnPressed.connect(self.mensaje_saliente)

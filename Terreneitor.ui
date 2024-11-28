@@ -28,53 +28,53 @@
   <widget class="QPushButton" name="btn_adelante">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>390</x>
      <y>130</y>
-     <width>75</width>
-     <height>24</height>
+     <width>81</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Adelante</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_izquierda">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>200</y>
-     <width>75</width>
-     <height>24</height>
+     <x>280</x>
+     <y>220</y>
+     <width>81</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Izquierda</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_derecha">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>190</y>
-     <width>75</width>
-     <height>24</height>
+     <x>490</x>
+     <y>220</y>
+     <width>81</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Derecha</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_atras">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>230</y>
-     <width>75</width>
-     <height>24</height>
+     <x>390</x>
+     <y>300</y>
+     <width>81</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Atras</string>
    </property>
   </widget>
  </widget>

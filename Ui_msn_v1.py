@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'c:\Users\toshiba\Desktop\Programacion\Pyton\Practica 7\PRACTICA_07\PRACTICA_07-1\msn_v1.ui'
+# Form implementation generated from reading ui file 'c:\Users\victo\OneDrive\Escritorio\UPIITA\4 semestre\programacion avanzada\programas\segundo parcial\practica 7\PRACTICA_07\msn_v1.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         self.btn_profilePicture.setMaximumSize(QtCore.QSize(180, 180))
         self.btn_profilePicture.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\toshiba\\Desktop\\Programacion\\Pyton\\Practica 7\\PRACTICA_07\\PRACTICA_07-1\\../../../../../../.designer/Practica 7/Icons/Icon_Fish.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\victo\\OneDrive\\Escritorio\\UPIITA\\4 semestre\\programacion avanzada\\programas\\segundo parcial\\practica 7\\PRACTICA_07\\../../../../../../.designer/Practica 7/Icons/Icon_Fish.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_profilePicture.setIcon(icon)
         self.btn_profilePicture.setIconSize(QtCore.QSize(165, 165))
         self.btn_profilePicture.setObjectName("btn_profilePicture")
@@ -122,10 +122,13 @@ class Ui_MainWindow(object):
         self.contactList.setMaximumSize(QtCore.QSize(580, 90))
         self.contactList.setObjectName("contactList")
         self.page = QtWidgets.QWidget()
-        self.page.setGeometry(QtCore.QRect(0, 0, 580, 60))
+        self.page.setGeometry(QtCore.QRect(0, 0, 563, 121))
         self.page.setObjectName("page")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.page)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.Lista_Contactos = QtWidgets.QListWidget(parent=self.page)
+        self.Lista_Contactos.setObjectName("Lista_Contactos")
+        self.verticalLayout_5.addWidget(self.Lista_Contactos)
         self.btn_Private = QtWidgets.QPushButton(parent=self.page)
         self.btn_Private.setObjectName("btn_Private")
         self.verticalLayout_5.addWidget(self.btn_Private)
