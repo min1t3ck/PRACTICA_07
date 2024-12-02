@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         self.btn_profilePicture.setMaximumSize(QtCore.QSize(180, 180))
         self.btn_profilePicture.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\victo\\OneDrive\\Escritorio\\UPIITA\\4 semestre\\programacion avanzada\\programas\\segundo parcial\\practica 7\\PRACTICA_07\\../../../../../../.designer/Practica 7/Icons/Icon_Fish.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\victo\\OneDrive\\Escritorio\\UPIITA\\4 semestre\\programacion avanzada\\programas\\segundo parcial\\practica 7\\PRACTICA_07\\Icons/Icon_Fish.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_profilePicture.setIcon(icon)
         self.btn_profilePicture.setIconSize(QtCore.QSize(165, 165))
         self.btn_profilePicture.setObjectName("btn_profilePicture")

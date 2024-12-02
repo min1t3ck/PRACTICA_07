@@ -10,26 +10,40 @@ from PyQt6.QtWidgets import QMainWindow, QDialog, QApplication, QMessageBox, QWi
 from PyQt6.QtCore import QThread, pyqtSignal
 import sys
 import socket
+import pickle
 
 class ThreadSocket(QThread):
     global connected
     signal_message = pyqtSignal(str)
+    signal_update_contacts = pyqtSignal(list)  
     def __init__(self, host, port, name):
         global connected
         super().__init__()
         server.connect(('18.119.116.177', 3003))
         connected = True
         server.send(bytes(f"<name>{name}", 'utf-8'))
+        
 
     def run(self):
         global connected
         try:
             while connected:
+                server.send(bytes("<Lista>", "utf-8"))
                 message = server.recv(BUFFER_SIZE)
                 if message:
-                    self.signal_message.emit(message.decode("utf-8"))
+                    try:
+                        # Intentamos deserializar el mensaje
+                        deserialized = pickle.loads(message)
+                        if isinstance(deserialized, list):
+                            # Es una lista de usuarios, actualizamos contactos
+                            self.signal_update_contacts.emit(deserialized)
+                        else:
+                            # Mensaje normal
+                            self.signal_message.emit(message.decode("utf-8"))
+                    except (pickle.UnpicklingError, UnicodeDecodeError):
+                        self.signal_message.emit(message.decode("utf-8"))
                 else:
-                    self.signal_message.emit("<!!disconected!!>")
+                    self.signal_message.emit("<!!disconnected!!>")
                     break
                 
         except ...:
@@ -49,9 +63,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.coneccion = socket_thread
         self.coneccion.signal_message.connect(self.mensaje_entrante)
-        server.send(bytes('<lista', 'utf-8'))
-        
-        self.usuarios_conectados = []
+        self.coneccion.signal_update_contacts.connect(self.actualizar_contactos)
         
         
         self.msgSend.clicked.connect(self.mensaje_saliente)
@@ -73,15 +85,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.mensaje_entrante("<Tú> " + str + '\n')
             
     def mensaje_entrante(self, mensaje):
-        if mensaje.startswith("<list_response>"):
-        
-            usuarios = mensaje.removeprefix("<list_response>").removesuffix("</list_response>")
-            self.usuarios_conectados = usuarios.split(",") if usuarios else []
-            print("Usuarios conectados:", self.usuarios_conectados)
-        else:
-            
             self.msgView.setPlainText(self.msgView.toPlainText() + mensaje)
             self.msgView.verticalScrollBar().setValue(self.msgView.verticalScrollBar().maximum())
+            
+    def actualizar_contactos(self, contactos):
+        self.Lista_Contactos.clear()
+        self.Lista_Contactos.addItems(contactos)
             
     
     def MostrarAdvertencia(self, texto):
@@ -100,6 +109,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def terreneitor(self):
         self.ventana_terreneitor = Terrene(self)
         self.ventana_terreneitor.show()
+        
+    def closeEvent(self, event):
+        if self.coneccion:
+            self.coneccion.stop()
+        event.accept()
 
 class Primera(QDialog, Ui_DialogPrim):
     def __init__(self, *args, **kwargs):

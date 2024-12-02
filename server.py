@@ -1,6 +1,7 @@
 import socket
 import threading
 import time
+import pickle
 
 class Cliente:
     name = ""
@@ -12,7 +13,6 @@ def clientthread(conn, addr):
     while True:
  	#try:
             message = conn.recv(BUFFER_SIZE) #Bloquea la ejecucion del programa hasta recibir un msj
-            print(f"El mensaje sin decodificar es {message}")
             if message:
                 print(f"<{addr[0]}> {message}")
                 msg = message.decode('utf-8')
@@ -21,6 +21,8 @@ def clientthread(conn, addr):
                     setName(conn, msg.removeprefix('<name>'))
                 elif msg.startswith('<command>'):
                     broadcast(msg + '\n', conn)
+                elif msg.startswith('<Lista>'):
+                    EnviarLista(conn)
                 else:
                     # Reenviamos el mensaje recibido a todos los demás clientes.
                     message_to_send = f"<{getName(conn)}> {message.decode('utf-8')}\n"
@@ -57,7 +59,19 @@ def broadcast(message, connection):
 def remove(connection):
     if connection in list_of_clients:
         list_of_clients.remove(connection)
+        
+def EnviarLista(conn):
+    lista_seriada = []
 
+    # Filtrar la lista de clientes excluyendo al que ha solicitado
+    for client in list_of_clients:
+        if client.conn != conn:  # Si no es el cliente que hace la solicitud
+            lista_seriada.append(client.name)  # Añadimos solo el nombre, o cualquier otra info que quieras
+
+    # Serializar la lista de contactos y enviarla
+    lista_seriada = pickle.dumps(lista_seriada)
+    conn.sendall(lista_seriada)
+    
 if __name__ == "__main__":
     #host = socket.gethostname()  # Esta función nos da el nombre de la máquina
     host = "0.0.0.0"

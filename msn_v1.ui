@@ -100,7 +100,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../../../../../../.designer/Practica 7/Icons/Icon_Fish.jpg</normaloff>../../../../../../.designer/Practica 7/Icons/Icon_Fish.jpg</iconset>
+        <normaloff>Icons/Icon_Fish.jpg</normaloff>Icons/Icon_Fish.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>

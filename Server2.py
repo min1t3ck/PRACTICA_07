@@ -20,7 +20,7 @@ def clientthread(conn, addr):
                 if msg.startswith('<name>'):
                     setName(conn, msg.removeprefix('<name>'))
                 elif msg.startswith('<lista'):
-                    lista_clientes(conn)
+                    enviar_clientes(conn)
                 elif msg.startswith('<private:'):
                     mensaje_privado(conn, msg)
                 elif msg.startswith('<group:'):
