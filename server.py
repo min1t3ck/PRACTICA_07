@@ -9,31 +9,41 @@ class Cliente:
     addr = None
 
 def clientthread(conn, addr):
-    conn.send(bytes(f"Bienvenido {addr}\n", 'utf-8'))
-    while True:
- 	#try:
-            message = conn.recv(BUFFER_SIZE) #Bloquea la ejecucion del programa hasta recibir un msj
-            if message:
-                print(f"<{addr[0]}> {message}")
-                msg = message.decode('utf-8')
-                # Mensajes especiales (comandos)
-                if msg.startswith('<name>'):
-                    setName(conn, msg.removeprefix('<name>'))
-                elif msg.startswith('<command>'):
-                    broadcast(msg + '\n', conn)
-                elif msg.startswith('<Lista>'):
-                    EnviarLista(conn)
+
+    try:
+        conn.send(bytes(f"Bienvenido {addr}\n", 'utf-8'))
+        while True:
+            try:
+                message = conn.recv(BUFFER_SIZE)
+                if message:
+                    print(f"<{addr[0]}> {message}")
+                    msg = message.decode('utf-8')
+
+                    # Procesar mensajes especiales
+                    if msg.startswith('<name>'):
+                        setName(conn, msg.removeprefix('<name>'))
+
+                    elif msg.startswith('<command>'):
+                        broadcast(msg + '\n', conn)
+                    elif msg.startswith('<Lista>'):
+                        EnviarLista()
+                    else:
+                        # Reenviar el mensaje a otros clientes
+                        message_to_send = f"<{getName(conn)}> {msg}\n"
+                        broadcast(message_to_send, conn)
                 else:
-                    # Reenviamos el mensaje recibido a todos los demás clientes.
-                    message_to_send = f"<{getName(conn)}> {message.decode('utf-8')}\n"
-                    broadcast(message_to_send, conn)
-            else:
+                    print(f"Cliente desconectado: {addr}")
+                    remove(conn)
+                    break
+                EnviarLista()
+            except ConnectionResetError:
+                print(f"Cliente desconectado abruptamente: {addr}")
                 remove(conn)
-                print("SE DESCONECTA")
                 break
-                time.sleep(1)
-        #except:
-        #    break
+    except Exception as e:
+        print(f"Error en el hilo del cliente {addr}: {e}")
+    finally:
+        conn.close()
 
 def setName(connection, name:str):
     for client in list_of_clients:
@@ -57,21 +67,23 @@ def broadcast(message, connection):
                 remove(client)
 
 def remove(connection):
-    if connection in list_of_clients:
-        list_of_clients.remove(connection)
-        
-def EnviarLista(conn):
-    lista_seriada = []
-
-    # Filtrar la lista de clientes excluyendo al que ha solicitado
     for client in list_of_clients:
-        if client.conn != conn:  # Si no es el cliente que hace la solicitud
-            lista_seriada.append(client.name)  # Añadimos solo el nombre, o cualquier otra info que quieras
+        if client.conn == connection:
+            list_of_clients.remove(client)
+            break
+         # Enviar lista actualizada tras desconexión
+    EnviarLista()
 
-    # Serializar la lista de contactos y enviarla
-    lista_seriada = pickle.dumps(lista_seriada)
-    conn.sendall(lista_seriada)
-    
+def EnviarLista():
+    lista_nombres = [client.name if client.name else str(client.addr) for client in list_of_clients]
+
+    for client in list_of_clients:
+        try:
+            client.conn.send(pickle.dumps(lista_nombres))
+        except:
+            client.conn.close()
+            remove(client)
+
 if __name__ == "__main__":
     #host = socket.gethostname()  # Esta función nos da el nombre de la máquina
     host = "0.0.0.0"
@@ -93,12 +105,10 @@ if __name__ == "__main__":
             #list_of_clients.append(conn)  # Agregamos a la lista de clientes
             list_of_clients.append(nuevo_cliente)  # Agregamos a la lista de clientes
             print(f"Cliente conectado: {addr}")
-            # Creamos y ejecutamos el hilo para atender al cliente
             threading.Thread(target=clientthread, args=(conn, addr)).start()
     except KeyboardInterrupt:
         print("Caught keyboard interrupt, exiting")
     finally:
         conn.close()
-        server.close()   
+        server.close()
     print("Conexión terminada.")
-

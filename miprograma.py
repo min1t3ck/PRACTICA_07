@@ -28,7 +28,6 @@ class ThreadSocket(QThread):
         global connected
         try:
             while connected:
-                server.send(bytes("<Lista>", "utf-8"))
                 message = server.recv(BUFFER_SIZE)
                 if message:
                     try:
@@ -111,8 +110,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ventana_terreneitor.show()
         
     def closeEvent(self, event):
-        if self.coneccion:
-            self.coneccion.stop()
+        global connected
+        connected = False
+        try:
+            server.close()  
+        except Exception as e:
+            print(f"Error al cerrar el socket del cliente: {e}")
         event.accept()
 
 class Primera(QDialog, Ui_DialogPrim):
