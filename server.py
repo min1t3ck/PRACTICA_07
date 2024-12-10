@@ -25,6 +25,20 @@ def clientthread(conn, addr):
 
                     elif msg.startswith('<command>'):
                         broadcast(msg + '\n', conn)
+                        
+                    elif msg.startswith('<privado>'):
+                        # Manejar mensaje privado
+                        msg_privado = msg.removeprefix('<privado>')
+                        partes = msg_privado.split(':')
+                        destinatario = partes[0]
+                        mensaje_privado = partes[1]
+
+                        # Enviar mensaje privado al destinatario
+                        for client in list_of_clients:
+                            if client.name == destinatario:
+                                client.conn.send(bytes(f"<privado>{mensaje_privado}", 'utf-8'))
+                                break
+                    
                     elif msg.startswith('<Lista>'):
                         EnviarLista()
                     else:
