@@ -69,11 +69,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.msgWrite.returnPressed.connect(self.mensaje_saliente)
         
         #botones auxiliares pra probar las ventanas de privado y grupal
-        self.btn_Private.clicked.connect(self.mensajePrivado)
+        self.btn_Private.clicked.connect(self.abrir_privado)
         self.btn_Group.clicked.connect(self.mensajeGrupo)
         
         self.btn_Tereneitor.clicked.connect(self.terreneitor)
-        
         
 
     def mensaje_saliente(self):
@@ -90,16 +89,23 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def actualizar_contactos(self, contactos):
         self.Lista_Contactos.clear()
         self.Lista_Contactos.addItems(contactos)
-            
+        print(f"Contactos: {contactos}")
+    
+    #Método para abrir la ventana de mensaje privado
+    def abrir_privado(self):
+        indice_seleccionado = self.Lista_Contactos.currentRow()
+        if indice_seleccionado != -1:
+            contacto_seleccionado = self.Lista_Contactos.item(indice_seleccionado).text()
+            self.mostrar_ventana_contacto(contacto_seleccionado)
     
     def MostrarAdvertencia(self, texto):
         """Mostrar advertencia al usuario en caso de errores"""
         QMessageBox.warning(self, "Advertencia", texto)
 
-    #abre privado
-    def mensajePrivado(self):
-        self.ventana_privada = Privado(self) 
+    def mostrar_ventana_contacto(self, contacto):
+        self.ventana_privada = Privado(self, contacto) 
         self.ventana_privada.show() 
+        
     #abre grupal
     def mensajeGrupo(self):
         self.ventana_privada = Grupo(self) 
@@ -172,10 +178,23 @@ class Segunda(QDialog, Ui_DialogSeg):
 #Ventana Mensaje privado        
 class Privado(QDialog, Ui_Privado):
     signal_enviar = pyqtSignal(str, str)
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, contacto=None):
         super().__init__(parent)
         self.setupUi(self)
         self.btn_Close.clicked.connect(self.cerrarVentana)
+        print("Contacto:", contacto)
+        self.userName.setText(contacto)
+    
+    def mensaje_saliente_privado(self):
+        str = self.msgWritePrivate.text()
+        if str != "" and connected:
+            server.send(bytes(f"<privado>{self.contacto}:{str}", 'utf-8'))
+            self.msgWritePrivate.clear()
+            self.mensaje_entrante_privado("<Tú> " + str + '\n')
+            
+    def mensaje_entrante_privado(self, mensaje):
+            self.msgViewPrivate.setPlainText(self.msgViewPrivate.toPlainText() + mensaje)
+            self.msgViewPrivate.verticalScrollBar().setValue(self.msgViewPrivate.verticalScrollBar().maximum())
 
     def cerrarVentana(self):
         self.close()
@@ -251,5 +270,6 @@ if __name__ == "__main__":
             sys.exit()
 
     sys.exit(app.exec())
+
 
     
