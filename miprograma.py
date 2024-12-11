@@ -4,7 +4,7 @@ from Ui_Segunda import *
 from Ui_Privado import *
 from Ui_Grupos import *
 from Ui_Terreneitor import *
-
+from Ui_Casa import *
 
 from PyQt6.QtWidgets import QMainWindow, QDialog, QApplication, QMessageBox, QWidget
 from PyQt6.QtCore import QThread, pyqtSignal
@@ -73,7 +73,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.btn_Group.clicked.connect(self.mensajeGrupo)
         
         self.btn_Tereneitor.clicked.connect(self.terreneitor)
-        
+        self.btn_smartHome.clicked.connect(self.casa)
 
     def mensaje_saliente(self):
         str = self.msgWrite.text()
@@ -114,6 +114,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def terreneitor(self):
         self.ventana_terreneitor = Terrene(self)
         self.ventana_terreneitor.show()
+        
+    def casa(self):
+        self.ventana_casa = Casa(self)
+        self.ventana_casa.show()
         
     def closeEvent(self, event):
         global connected
@@ -235,8 +239,55 @@ class Terrene(QDialog, Ui_Terreneitor):
     def parar(self):
         server.send(bytes('<command>Parar', 'utf-8'))
     
+class Casa(QDialog,Ui_Form):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self) 
+        
+        self.btn_abrirP.clicked.connect(self.Abrir_Puerta)
+        self.btn_cerrarP.clicked.connect(self.Cerrar_Puerta)
+        
+        self.btn_ApagarF.clicked.connect(self.Apagar_Foco)
+        self.btn_encenderF.clicked.connect(self.Prender_Foco)
+        
+        self.btn_cortina1.pressed.connect(self.cortina_1)
+        self.btn_tendedero2.pressed.connect(self.cortina_2)
+        self.btn_cortina1.released.connect(self.PararCortina)
+        self.btn_tendedero2.released.connect(self.PararCortina)
+        
+        self.btn_reproducirM.clicked.connect(self.reproducir_Musica)
+        self.btn_detenerM.clicked.connect(self.detener_Musica)
+        self.btn_reiniciarM.clicked.connect(self.reiniciar_Musica)
+        
+    def Abrir_Puerta(self):
+        server.send(bytes('<command>AbrirPuerta', 'utf-8'))
     
+    def Cerrar_Puerta(self):
+        server.send(bytes('<command>CerrarPuerta', 'utf-8'))
+        
+    def Apagar_Foco(self):
+        server.send(bytes('<command>ApagarFoco', 'utf-8'))
+        
+    def Prender_Foco(self):
+        server.send(bytes('<command>EncenderFoco', 'utf-8'))   
+    
+    def cortina_1(self):
+        server.send(bytes('<command>AbrirCortina', 'utf-8'))
+        
+    def cortina_2(self):
+        server.send(bytes('<command>CerrarCortina', 'utf-8'))
+        
+    def reproducir_Musica(self):
+        server.send(bytes('<command>ReproducirAudio', 'utf-8'))
+        
+    def detener_Musica(self):
+        server.send(bytes('<command>PararAudio', 'utf-8'))
+        
+    def reiniciar_Musica(self):
+        server.send(bytes('<command>ReiniciarAudio', 'utf-8'))
 
+    def PararCortina(self):
+        server.send(bytes('<command>PararCortina', 'utf-8'))
 
 #Ventana mensaje grupal
 class Grupo(QDialog, Ui_Grupo):
